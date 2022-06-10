@@ -1,7 +1,7 @@
 const options = ["rock", "paper", "scissors"];
-let userInput = prompt("rock 🪨  paper 📄 or scissors ✂️ ?");
 
 const playerSelection = (userInput) => {
+  let userInput = prompt("Choose: rock, paper or scissors");
   userInput = userInput.toLowerCase();
   if (
     userInput === "rock" ||
@@ -44,12 +44,24 @@ const playRound = (playerSelection, computerSelection) => {
     }
   }
 };
+
 function game() {
   for (let i = 1; i <= 5; i++) {
-    console.log("player plays: " + userInput);
-    const computerSelection = computerPlay();
-    console.log("computer plays: " + computerSelection);
-    console.log(playRound(userInput, computerSelection), i);
+    let playerSelection = prompt("Choose: rock, paper or scissors");
+    playerSelection = playerSelection.toLowerCase();
+    if (
+      playerSelection == "rock" ||
+      playerSelection == "paper" ||
+      playerSelection == "scissors"
+    ) {
+      console.log("player plays: " + playerSelection);
+      const computerSelection = computerPlay();
+      console.log("computer plays: " + computerSelection);
+      console.log(playRound(playerSelection, computerSelection), i);
+    } else {
+      alert("type a valid answer");
+      i--;
+    }
   }
 }
 
